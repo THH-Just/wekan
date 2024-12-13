@@ -39,6 +39,16 @@ if (Meteor.isServer) {
   }
 
   storagePath = path.join(process.env.WRITABLE_PATH, 'attachments');
+  console.log('WRITABLE_PATH Variable:', process.env.WRITABLE_PATH);
+
+  // Zusätzliche Beispiel-Verzeichnisse und Pfade
+  const someFolder = 'some-folder';
+  const someFile = 'file.txt';
+  const fullPath = path.join(storagePath, someFolder, someFile);
+
+  console.log('Vollständiger Pfad:', fullPath);
+
+
 }
 
 export const fileStoreStrategyFactory = new FileStoreStrategyFactory(AttachmentStoreStrategyFilesystem, storagePath, AttachmentStoreStrategyGridFs, attachmentBucket);
