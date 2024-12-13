@@ -86,10 +86,16 @@ Attachments = new FilesCollection({
     // keep the original filename
     return str;
   },
-  storagePath() {
+storagePath() {
+    console.log('Debug: WRITABLE_PATH:', process.env.WRITABLE_PATH);
+    console.log('Debug: fileStoreStrategyFactory.storagePath:', fileStoreStrategyFactory.storagePath);
+
     const ret = fileStoreStrategyFactory.storagePath;
     return ret;
-  },
+},
+
+
+
   onAfterUpload(fileObj) {
     // current storage is the filesystem, update object and database
     Object.keys(fileObj.versions).forEach(versionName => {
